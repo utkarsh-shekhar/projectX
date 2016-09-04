@@ -3,8 +3,14 @@
 {% if user.is_authenticated%}
   <p>Welcome, {{user.get_username}}! You are logged in.</p>
   {% include "app/navbar.html" %}
+
 {% else %}
+  {{LoginStatus}}
+  {% if LoginStatus is not None and LoginStatus is False%}
+    <p>Incorrect login</p>
+    {% endif %}
   <form action="{% url 'app:index' %}" method="post">
+    {% csrf_token %}
     <div class="row">
       <label for="username" class="col-md-6">Username</label>
       <input type="text" class="col-md-6" name="username" />
