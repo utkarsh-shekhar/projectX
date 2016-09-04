@@ -1,13 +1,21 @@
-{% load static %}
+{% include "app/header.html" %}
 
-<!doctype html>
-<html>
-<head>
-  <link rel="stylesheet" type="text/css" href="{% static 'app/css/bootstrap.min.css' %}" />
-  <link rel="stylesheet" type="text/css" href="{% static 'app/css/bootstrap-theme.min.css' %}" />
-  <link rel="stylesheet" type="text/css" href="{% static 'app/css/bootstrap.min.css' %}" />
-
-  <script src="{% static 'app/js/bootstrap.min.js' %}" ></script>
-</head>
-</body>
-</html>
+{% if user.is_authenticated%}
+  <p>Welcome, {{user.get_username}}! You are logged in.</p>
+  {% include "app/navbar.html" %}
+{% else %}
+  <form action="{% url 'app:index' %}" method="post">
+    <div class="row">
+      <label for="username" class="col-md-6">Username</label>
+      <input type="text" class="col-md-6" name="username" />
+    </div>
+    <div class="row">
+      <label for="password" class="col-md-6">Password</label>
+      <input type="password" class="col-md-6" name="password" />
+    </div>
+    <div class="row">
+      <input type="submit" class="col-md-12" value="Login" />
+    </div>
+  </form>
+{% endif %}
+{% include "app/footer.html" %}
