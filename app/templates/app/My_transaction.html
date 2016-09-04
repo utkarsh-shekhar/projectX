@@ -1,0 +1,45 @@
+{% load static %}
+{% include "app/header.html" %}
+<!doctype html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'app/css/bootstrap.min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'app/css/bootstrap-theme.min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'app/css/bootstrap.min.css' %}" />
+
+  <script src="{% static 'app/js/bootstrap.min.js' %}" ></script>
+
+</head>
+<body>
+  <div class="col-md-7">
+    {% if transactions_list%}
+      <table>
+          <tr>
+              <th>Transaction ID</th>
+              <th>Paid By</th>
+              <th>Owned By </th>
+              <th>Description </th>
+              <th>Amount</th>
+              <th>Purchased On</th>
+          </tr>
+
+          {%for transactions in transactions_list%}
+
+          <tr>
+
+              <td>transactions.Transaction_No</td>
+              <td>transactions.PaidBy</td>
+              <td>transactions.OwnedBy</td>
+              <td>transactions.Description</td>
+              <td>transactions.Amount</td>
+              <td>transactions.DateTime</td>
+          </tr>
+      </table>
+      {%else%}
+          <h3> No transaction Present </h3>
+/div>
+
+</body>
+
+</html>
+{% include "app/footer.html" %}
