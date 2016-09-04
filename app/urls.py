@@ -13,8 +13,8 @@ urlpatterns = [
 	# url(r'^(?P<pk>[0-9]+)/results/$', views.ResultsView.as_view(), name='results'),
 	# #ex: /polls/5/vote/
 	# url(r'^(?P<question_id>[0-9]+)/vote/$', views.vote, name='vote'),
-	# url(r'^user/create$', views.create_user, name='create_user'),
-	# url(r'^user/login$', views.login_view, name='login'),
-	# url(r'^user/logout$', views.logout_view, name='logout'),
+	 url(r'^user/create$', views.create, name='create_user'),
+	 url(r'^user/login$', views.login, name='login'),
+	 url(r'^user/logout$', views.logout, name='logout'),
     url(r'^$', views.IndexView, name = 'index')
 ]
