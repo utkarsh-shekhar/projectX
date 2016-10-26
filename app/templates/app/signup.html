@@ -1,11 +1,12 @@
-<form action="{% url 'app:index' %}" method="post">
+<form action="{% url 'app:create' %}" method="post">
+  {% csrf_token %}
   <div class="row">
-    <label for="first_name" class="col-md-6">First name</label>
-    <input type="text" class="col-md-6" name="first_name" />
+    <label for="firstname" class="col-md-6">First name</label>
+    <input type="text" class="col-md-6" name="firstname" />
   </div>
   <div class="row">
-    <label for="first_name" class="col-md-6">Last name</label>
-    <input type="text" class="col-md-6" name="last_name" />
+    <label for="lastname" class="col-md-6">Last name</label>
+    <input type="text" class="col-md-6" name="lastname" />
   </div>
   <div class="row">
     <label for="username" class="col-md-6">Username</label>
@@ -14,6 +15,10 @@
   <div class="row">
     <label for="password" class="col-md-6">Password</label>
     <input type="password" class="col-md-6" name="password" />
+  </div>
+  <div class="row">
+    <label for="email" class="col-md-6">E-mail</label>
+    <input type="email" class="col-md-6" name="email" />
   </div>
   <div class="row">
     <input type="submit" class="col-md-12" value="Login" />

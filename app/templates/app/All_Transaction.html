@@ -25,19 +25,23 @@
 
           {%for transactions in transactions_list%}
 
-          <tr>
+        <tr>
 
-              <td>transactions.transaction_no</td>
-              <td>transactions.PaidBy</td>
-              <td>transactions.OwnedBy</td>
-              <td>transactions.Description</td>
-              <td>transactions.Amount</td>
-              <td>transactions.DateTime</td>
+              <td>{{transactions.Transaction_No}}</td>
+              <td>{{transactions.PaidBy}}</td>
+              <td>{{transactions.OwnedBy}}</td>
+              <td>{{transactions.Description}}</td>
+              <td>{{transactions.Amount}}</td>
+              <td>{{transactions.DateTime}}</td>
           </tr>
+          {% endfor %}
       </table>
+
+
       {%else%}
           <h3> No transaction Present </h3>
-/div>
+    {% endif %}
+</div>
 
 </body>
 
